@@ -34,7 +34,7 @@ const store = new Vuex.Store({
       // 存储token
       Authorization: sessionStorage.getItem('Authorization') ? sessionStorage.getItem('Authorization') : '',
       isLogin:false,
-      currentUser:sessionStorage.getItem('currentUser') ? sessionStorage.getItem('currentUser') : '',
+      currentUser:null
     },
    
     mutations: {
@@ -44,10 +44,7 @@ const store = new Vuex.Store({
         state.isLogin=true;
         state.currentUser=user.currentUser;
         sessionStorage.setItem('Authorization', user.Authorization);
-        sessionStorage.setItem('currentUser',user.currentUser);
-        // console.log(user.currentUser)
-        // console.log("user"+JSON.parse(state.currentUser));
-        // console.log("token"+state.Authorization);
+        sessionStorage.setItem('currentUser',JSON.stringify(user.currentUser));
       }
     }
   });

@@ -3,12 +3,27 @@ import Register from './views/Register.vue'
 import NotFound from './views/404.vue'
 import Home from './views/Home.vue'
 import Main from './views/Main.vue'
-import Table from './views/nav1/Table.vue'
-import Form from './views/nav1/Form.vue'
-import user from './views/nav1/user.vue'
-import Page4 from './views/nav2/Page4.vue'
-import Page5 from './views/nav2/Page5.vue'
-import Page6 from './views/nav3/Page6.vue'
+import Table from './views/system/Table.vue'
+import Form from './views/system/Form.vue'
+import user from './views/system/user.vue'
+
+// import SystemHome from './views/system/Home.vue'
+import SystemInfo from './views/system/SystemInfo.vue'
+import SystemCpuInfo from './views/system/SystemCpuInfo.vue'
+import SystemJvmInfo from './views/system/SystemJvmInfo.vue'
+import SystemMemoryInfo from './views/system/SystemMemoryInfo.vue'
+import SystemNetworkInfo from './views/system/SystemNetworkInfo.vue'
+
+
+import UserList from './views/user/userlist.vue'
+
+import RoleList from './views/role/rolelist.vue'
+
+import Page4 from './views/user/Page4.vue'
+import Page5 from './views/user/Page5.vue'
+
+
+import Page6 from './views/role/Page6.vue'
 import echarts from './views/charts/echarts.vue'
 
 let routes = [
@@ -38,9 +53,12 @@ let routes = [
         iconCls: 'fa fa-home fa-lg ',//图标样式class
         children: [
             { path: '/main', component: Main, name: '主页', hidden: true },
-            { path: '/table', component: Table, name: 'Table' },
-            { path: '/form', component: Form, name: 'Form' },
-            { path: '/user', component: user, name: '列表' },
+            { path: '/SystemInfo', component: SystemInfo, name: '系统属性' },
+            { path: '/SystemCPUInfo', component: SystemCpuInfo, name: 'CPU性能' },
+            { path: '/SystemJVMInfo', component: SystemJvmInfo, name: 'JVM性能' },
+            { path: '/SystemMemoryInfo', component: SystemMemoryInfo, name: '内存性能' },
+            { path: '/SystemNetworkInfo', component: SystemNetworkInfo, name: '网络性能' },
+            
         ]
     },
     {
@@ -50,9 +68,10 @@ let routes = [
         iconCls: 'fa fa-user fa-lg ',//图标样式class
         children: [
             { path: '/main', component: Main, name: '主页', hidden: true },
-            { path: '/table', component: Table, name: 'Table' },
-            { path: '/form', component: Form, name: 'Form' },
-            { path: '/user', component: user, name: '列表' },
+            { path: '/userlist', component: UserList, name: '用户列表' },
+            // { path: '/table', component: Table, name: 'Table' },
+            // { path: '/form', component: Form, name: 'Form' },
+            // { path: '/user', component: user, name: '列表' },
         ]
     },
     {
@@ -61,8 +80,9 @@ let routes = [
         name: '角色管理',
         iconCls: 'fa fa-id-card-o fa-lg',
         children: [
-            { path: '/page4', component: Page4, name: '页面4' },
-            { path: '/page5', component: Page5, name: '页面5' }
+            { path: '/rolelist', component: RoleList, name: '角色列表' },
+            // { path: '/page4', component: Page4, name: '页面4' },
+            // { path: '/page5', component: Page5, name: '页面5' }
         ]
     },
     {

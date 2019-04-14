@@ -131,6 +131,7 @@
             }
             else{
               _this.$router.push('/login');
+              alert('账号或密码错误，请再次登录');
             }
           }).catch(error => {
               alert('账号或密码错误');

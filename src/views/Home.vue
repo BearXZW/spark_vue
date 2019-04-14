@@ -23,7 +23,7 @@
 		<el-col :span="24" class="main">
 			<aside :class="collapsed?'menu-collapsed':'menu-expanded'">
 				<!--导航菜单-->
-				<el-menu :default-active="$route.path" class="el-menu-vertical-demo" @open="handleopen" @close="handleclose" @select="handleselect"
+				<el-menu :default-active="$route.path" class="el-menu-vertical-demo" @open="handleopen" @close="handleclose" @select="handleselect" :style="collapsed?'width:64px':''"
 					 unique-opened router v-show="!collapsed">
 					<template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
 						<el-submenu :index="index+''" v-if="!item.leaf">
@@ -127,13 +127,17 @@
 			}
 		},
 		mounted() {
-			var user = sessionStorage.getItem('user');
+			var user = sessionStorage.getItem('currentUser');
+			//console.log(user.toString())
 			if (user) {
-				user = JSON.parse(user);
-				this.sysUserName = user.name || '';
-				this.sysUserAvatar = user.avatar || '';
+				// console.log(JSON.parse(sessionStorage.getItem("currentUser")))
+				// var result = $.parseJSON(jsonData);// 转成JSON对象
+				var currentUser = JSON.parse(user)
+				// console.log("user"+currentUser)
+				this.sysUserName = currentUser.username || '';
+				console.log(this.sysUserName)
+				this.sysUserAvatar = currentUser.avatar || '';
 			}
-
 		}
 	}
 

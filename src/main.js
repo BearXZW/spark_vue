@@ -17,6 +17,7 @@ import echarts from 'echarts'
 // Mock.bootstrap();
 import 'font-awesome/css/font-awesome.min.css'
 
+
 Vue.config.productionTip=false;
 Vue.prototype.$echarts=echarts;
 Vue.prototype.$axios=axios;
